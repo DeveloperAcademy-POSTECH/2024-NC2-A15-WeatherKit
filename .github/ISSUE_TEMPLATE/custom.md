@@ -1,3 +1,12 @@
+---
+name: Custom issue template
+about: Describe this issue template's purpose here.
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 <!-- 이슈 제목
 <알아보기 쉽게 제목 작성>
 -->
