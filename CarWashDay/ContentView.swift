@@ -102,9 +102,30 @@ struct ContentView: View {
                     .padding(.horizontal, 24)
                     .background(Color(.cwBlueList))
                     .cornerRadius(16)
-                    Rectangle()
-                        .foregroundColor(.cwBlueBg)
-                        .frame(height: 64)
+                    
+                    VStack{
+                        Rectangle()
+                            .foregroundColor(.cwBlueBg)
+                            .frame(height: 28)
+                        HStack(spacing: 3) {
+                            Image(systemName: "apple.logo")
+                                .foregroundColor(.cwGray3)
+                                .font(.system(size: 12))
+                            Text("Weather")
+                                .font(.custom("Pretendard-Reguler", size:12))
+                                .foregroundColor(.cwGray3)
+                            Link(destination: URL(string: "https://www.apple.com")!, label: {
+                                Text("Data Sources")
+                                    .font(.custom("Pretendard-Reguler", size:12))
+                                    .foregroundColor(.cwGray3)
+                                    .underline(true, color: .cwGray3)
+                                    .padding(.leading,8)
+                            })
+                            
+                        }
+                        .padding(.bottom,44)
+                    }
+                    
                 }
                 .edgesIgnoringSafeArea(.all)
                 
