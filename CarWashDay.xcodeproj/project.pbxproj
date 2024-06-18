@@ -33,7 +33,6 @@
 		7FC3592F2C207B810052B120 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		7FC359302C207B810052B120 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		7FC359312C207B810052B120 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		7FC359352C207BB00052B120 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,15 +66,11 @@
 			isa = PBXGroup;
 			children = (
 				4C1832B12C20703400FE551E /* Info.plist */,
-				4C1832AF2C206F1500FE551E /* Views */,
+				4C1832DC2C21598000FE551E /* Views */,
 				4C1832AA2C206E9700FE551E /* Managers */,
 				4C1832A92C204A6A00FE551E /* CarWashDay.entitlements */,
 				4C18329B2C2049B300FE551E /* CarWashDayApp.swift */,
 				4C18329D2C2049B300FE551E /* TestView.swift */,
-				7FC359352C207BB00052B120 /* Info.plist */,
-				4C1832A92C204A6A00FE551E /* CarWashDay.entitlements */,
-				4C18329B2C2049B300FE551E /* CarWashDayApp.swift */,
-				4C18329D2C2049B300FE551E /* ContentView.swift */,
 				7FC3592E2C207AD60052B120 /* Fonts */,
 				4C18329F2C2049B400FE551E /* Assets.xcassets */,
 				4C1832A12C2049B400FE551E /* Preview Content */,
@@ -101,11 +96,13 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		4C1832AF2C206F1500FE551E /* Views */ = {
+		4C1832DC2C21598000FE551E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
 		7FC3592E2C207AD60052B120 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,7 +325,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarWashDay/Preview Content\"";
-				DEVELOPMENT_TEAM = NC7J6R39HU;
+				DEVELOPMENT_TEAM = 9R7T8F4A6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarWashDay/Info.plist;
@@ -360,7 +357,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CarWashDay/Preview Content\"";
-				DEVELOPMENT_TEAM = NC7J6R39HU;
+				DEVELOPMENT_TEAM = 9R7T8F4A6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CarWashDay/Info.plist;
