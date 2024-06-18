@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        ZStack{
             VStack {
+                
                 Spacer()
+                
                 HStack{
                     Image(systemName: "location.fill")
                         .foregroundColor(.cwGray4)
@@ -21,7 +22,8 @@ struct ContentView: View {
                     Text("포항시 지곡동")
                         .font(.custom("Pretendard-reguler", size:16))
                         .foregroundColor(.cwGray4)
-                }.padding(.bottom, 40)
+                }
+                .padding(.bottom, 40)
                 
                 Text("오늘 세차하기 좋아요")
                     .font(.custom("Pretendard-bold", size:24))
@@ -31,13 +33,20 @@ struct ContentView: View {
                 Text("10일간 비 올 확률이 낮아요")
                     .font(.custom("Pretendard-reguler", size:16))
                     .foregroundColor(.cwGray4)
+                    .padding(.bottom, 42)
                 
                 Image("SunCar")
                 
+                ScrollView{
+                    RoundedRectangle(cornerRadius: 16)
+                        .foregroundColor(.cwBlueList)
+                }
+                
                 Spacer()
             }
-            
-        }
+            .padding(.horizontal, 20)
+            .background(Color(.cwBlueBg))
+       
     }
 }
 
