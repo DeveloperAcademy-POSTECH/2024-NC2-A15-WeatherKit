@@ -13,6 +13,7 @@ struct ContentView: View {
     @StateObject private var weatherManager = WeatherManager()
     
     @State var dateFormatter = DateFormatter()
+    @State var recommendationStatus: CWRecommendationStatus = .goodForCarWash
     
     var body: some View {
         VStack {
@@ -42,7 +43,7 @@ struct ContentView: View {
             .padding(.bottom, 40)
             
             // 주입 필요
-            RecommendView(currentStatus: .rainLikely)
+            RecommendView(currentStatus: recommendationStatus)
             
             ScrollView(.vertical, showsIndicators: false){
                 if let location = locationManager.location {
@@ -156,6 +157,21 @@ struct ContentView: View {
         .onAppear {
             dateFormatter.locale = Locale(identifier: "ko_KR")
             dateFormatter.dateFormat = "E"
+            print(weatherManager.rainyDays)
+            print(weatherManager.precipitationUpperDays)
+            setRecommendationStatus()
+            
+            print(recommendationStatus)
+        }
+    }
+    
+    private func setRecommendationStatus() {
+        if weatherManager.rainyDays >= 1 {
+            recommendationStatus = .rainy
+        } else if weatherManager.precipitationUpperDays >= 1 {
+            recommendationStatus = .rainLikely
+        } else {
+            recommendationStatus = .goodForCarWash
         }
     }
     

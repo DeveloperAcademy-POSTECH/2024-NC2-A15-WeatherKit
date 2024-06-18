@@ -17,11 +17,26 @@ class WeatherManager: ObservableObject {
     
     @Published var dailyWeather: [DayWeather] = []
     @Published var precipitationProbability: Double?
+    @Published var rainyDays: Int = 0
+    @Published var precipitationUpperDays: Int = 0
     
     func fetchWeather(for location: CLLocation) async {
         do {
             let weather = try await weatherService.weather(for: location)
             dailyWeather = weather.dailyForecast.forecast.prefix(10).map { $0 }
+            
+            // 비오는 날이나 확률높은 날 계산
+            for day in dailyWeather {
+                var condition = CWWeatherCondition.convertCondition(condition: day.condition.rawValue)
+                
+                if condition == .rain {
+                    rainyDays += 1
+                }
+                
+                if day.precipitationChance >= 0.6 {
+                    precipitationUpperDays += 1
+                }
+             }
         } catch {
             print("Failed to fetch weather data: \(error)")
         }

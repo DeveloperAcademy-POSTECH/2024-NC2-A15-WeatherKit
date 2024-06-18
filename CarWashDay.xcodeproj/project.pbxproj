@@ -15,6 +15,7 @@
 		4C1832AE2C206ED500FE551E /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1832AD2C206ED500FE551E /* WeatherManager.swift */; };
 		4C1832D92C213A3D00FE551E /* CWWeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */; };
 		4C806AC82C219A70008D8D0C /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C806AC72C219A70008D8D0C /* RecommendView.swift */; };
+		4C806ACA2C21A1CC008D8D0C /* CWRecommendationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C806AC92C21A1CC008D8D0C /* CWRecommendationStatus.swift */; };
 		4C9C66252C216A170018FFA7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9C66242C216A170018FFA7 /* ContentView.swift */; };
 		7FC359322C207B810052B120 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7FC3592F2C207B810052B120 /* Pretendard-Medium.otf */; };
 		7FC359332C207B810052B120 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7FC359302C207B810052B120 /* Pretendard-Regular.otf */; };
@@ -33,6 +34,7 @@
 		4C1832B12C20703400FE551E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWWeatherCondition.swift; sourceTree = "<group>"; };
 		4C806AC72C219A70008D8D0C /* RecommendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		4C806AC92C21A1CC008D8D0C /* CWRecommendationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWRecommendationStatus.swift; sourceTree = "<group>"; };
 		4C9C66242C216A170018FFA7 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7FC3592F2C207B810052B120 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		7FC359302C207B810052B120 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */,
+				4C806AC92C21A1CC008D8D0C /* CWRecommendationStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				4C18329E2C2049B300FE551E /* TestView.swift in Sources */,
 				4C18329C2C2049B300FE551E /* CarWashDayApp.swift in Sources */,
+				4C806ACA2C21A1CC008D8D0C /* CWRecommendationStatus.swift in Sources */,
 				4C9C66252C216A170018FFA7 /* ContentView.swift in Sources */,
 				4C1832AE2C206ED500FE551E /* WeatherManager.swift in Sources */,
 				4C1832AC2C206EAD00FE551E /* LocationManager.swift in Sources */,
