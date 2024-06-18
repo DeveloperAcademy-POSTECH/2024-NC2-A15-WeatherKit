@@ -27,7 +27,7 @@ class WeatherManager: ObservableObject {
             
             // 비오는 날이나 확률높은 날 계산
             for day in dailyWeather {
-                var condition = CWWeatherCondition.convertCondition(condition: day.condition.rawValue)
+                let condition = CWWeatherCondition.convertCondition(condition: day.condition.rawValue)
                 
                 if condition == .rain {
                     rainyDays += 1

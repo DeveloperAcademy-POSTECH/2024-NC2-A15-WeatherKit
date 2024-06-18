@@ -43,87 +43,84 @@ struct ContentView: View {
             .padding(.bottom, 40)
             
             RecommendView(currentStatus: recommendationStatus)
+                .redacted(reason: weatherManager.dailyWeather.isEmpty ? .placeholder : [])
+                .animation(.easeInOut(duration: 0.6), value: weatherManager.dailyWeather.isEmpty)
             
             ScrollView(.vertical, showsIndicators: false){
                 if let location = locationManager.location {
-                    if weatherManager.dailyWeather.isEmpty {
-                        Text("날씨 불러오는 중...")
-                            .font(.custom("Pretendard-Reguler", size:16))
-                            .foregroundColor(.cwGray4)
-                            .padding(.vertical, 42)
-                            .onAppear {
-                                Task {
-                                    await weatherManager.fetchWeather(for: location)
-                                    setRecommendationStatus()
-                                }
-                            }
-                    } else {
-                        VStack {
+                    VStack {
+                        Spacer()
+                            .padding(.top, 10)
+                        HStack {
+                            Text("10일간의 일기 예보")
+                                .font(.custom("Pretendard-Regular", size:14))
+                                .foregroundColor(.cwGray2)
+                            
                             Spacer()
-                                .padding(.top, 10)
-                            HStack {
-                                Text("10일간의 일기 예보")
-                                    .font(.custom("Pretendard-Regular", size:14))
-                                    .foregroundColor(.cwGray2)
-                                
-                                Spacer()
-                            }
+                        }
+                        .padding(.bottom, 9)
+                        
+                        Divider()
                             .padding(.bottom, 9)
-                            
-                            Divider()
-                                .padding(.bottom, 9)
-                            
-                            ForEach(weatherManager.dailyWeather, id: \.date) { dayWeather in
-                                HStack{
-                                    GeometryReader { geometry in
-                                        let totalWidth = geometry.size.width
-                                        let columnWidth1 = totalWidth * 0.25
-                                        let columnWidth2 = totalWidth * 0.5
-                                        let columnWidth3 = totalWidth * 0.25
+                        
+                        ForEach(weatherManager.dailyWeather, id: \.date) { dayWeather in
+                            HStack{
+                                GeometryReader { geometry in
+                                    let totalWidth = geometry.size.width
+                                    let columnWidth1 = totalWidth * 0.25
+                                    let columnWidth2 = totalWidth * 0.5
+                                    let columnWidth3 = totalWidth * 0.25
+                                    
+                                    let columns = [
+                                        GridItem(.fixed(columnWidth1), spacing: 0, alignment: .center),
+                                        GridItem(.fixed(columnWidth2), spacing: 0, alignment: .center),
+                                        GridItem(.fixed(columnWidth3), spacing: 0, alignment: .center)
+                                    ]
+                                    LazyVGrid(columns: columns) {
+                                        HStack {
+                                            Text(dateFormatter.string(from: dayWeather.date))
+                                                .font(.custom("Pretendard-Medium", size:20))
+                                                .foregroundColor(.cwGray4)
+                                            Spacer()
+                                        }
                                         
-                                        let columns = [
-                                            GridItem(.fixed(columnWidth1), spacing: 0, alignment: .center),
-                                            GridItem(.fixed(columnWidth2), spacing: 0, alignment: .center),
-                                            GridItem(.fixed(columnWidth3), spacing: 0, alignment: .center)
-                                        ]
-                                        LazyVGrid(columns: columns) {
+                                        ZStack(alignment: .leading) {
                                             HStack {
-                                                Text(dateFormatter.string(from: dayWeather.date))
-                                                    .font(.custom("Pretendard-Medium", size:20))
-                                                    .foregroundColor(.cwGray4)
-                                                Spacer()
-                                            }
-                                            
-                                            ZStack(alignment: .leading) {
-                                                HStack {
-                                                    getConditionIcon(condition: CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue))
-                                                    
-                                                    Spacer()
-                                                }
+                                                getConditionIcon(condition: CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue))
                                                 
-                                                Text(CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue).rawValue)
-                                                    .font(.custom("Pretendard-Regular", size:16))
-                                                    .foregroundColor(.cwGray3)
-                                                    .padding(.leading, 49)
-                                            }
-                                            
-                                            
-                                            HStack {
                                                 Spacer()
-                                                Text("\(dayWeather.precipitationChance * 100, specifier: "%.0f")%")
-                                                    .font(.custom("Pretendard-Medium", size:20))
-                                                    .foregroundColor(.cwGray3)
                                             }
+                                            
+                                            Text(CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue).rawValue)
+                                                .font(.custom("Pretendard-Regular", size:16))
+                                                .foregroundColor(.cwGray3)
+                                                .padding(.leading, 49)
+                                        }
+                                        
+                                        
+                                        HStack {
+                                            Spacer()
+                                            Text("\(dayWeather.precipitationChance * 100, specifier: "%.0f")%")
+                                                .font(.custom("Pretendard-Medium", size:20))
+                                                .foregroundColor(.cwGray3)
                                         }
                                     }
-                                    .padding(.bottom, 32)
                                 }
+                                .padding(.bottom, 32)
                             }
                         }
-                        .padding(.horizontal, 24)
-                        .background(Color(.cwBlueList))
-                        .cornerRadius(16)
                     }
+                    .padding(.horizontal, 24)
+                    .background(Color(.cwBlueList))
+                    .cornerRadius(16)
+                    .onAppear {
+                        Task {
+                            await weatherManager.fetchWeather(for: location)
+                            setRecommendationStatus()
+                        }
+                    }
+                    .redacted(reason: weatherManager.dailyWeather.isEmpty ? .placeholder : [])
+                    .animation(.easeInOut(duration: 1.0), value: weatherManager.dailyWeather.isEmpty)
                 }
                
                 VStack {
@@ -148,7 +145,6 @@ struct ContentView: View {
                     }
                     .padding(.bottom,44)
                 }
-                
             }
             .edgesIgnoringSafeArea(.all)
         }
@@ -168,10 +164,6 @@ struct ContentView: View {
         } else {
             recommendationStatus = .goodForCarWash
         }
-        
-        print(weatherManager.rainyDays)
-        print(weatherManager.precipitationUpperDays)
-        print(recommendationStatus)
     }
     
     @ViewBuilder
