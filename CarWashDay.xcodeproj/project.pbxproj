@@ -8,18 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		4C18329C2C2049B300FE551E /* CarWashDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18329B2C2049B300FE551E /* CarWashDayApp.swift */; };
-		4C18329E2C2049B300FE551E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18329D2C2049B300FE551E /* ContentView.swift */; };
+		4C18329E2C2049B300FE551E /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18329D2C2049B300FE551E /* TestView.swift */; };
 		4C1832A02C2049B400FE551E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C18329F2C2049B400FE551E /* Assets.xcassets */; };
 		4C1832A32C2049B400FE551E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1832A22C2049B400FE551E /* Preview Assets.xcassets */; };
+		4C1832AC2C206EAD00FE551E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1832AB2C206EAD00FE551E /* LocationManager.swift */; };
+		4C1832AE2C206ED500FE551E /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1832AD2C206ED500FE551E /* WeatherManager.swift */; };
+		4C1832D92C213A3D00FE551E /* CWWeatherCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4C1832982C2049B300FE551E /* CarWashDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarWashDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C18329B2C2049B300FE551E /* CarWashDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashDayApp.swift; sourceTree = "<group>"; };
-		4C18329D2C2049B300FE551E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4C18329D2C2049B300FE551E /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		4C18329F2C2049B400FE551E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C1832A22C2049B400FE551E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C1832A92C204A6A00FE551E /* CarWashDay.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CarWashDay.entitlements; sourceTree = "<group>"; };
+		4C1832AB2C206EAD00FE551E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		4C1832AD2C206ED500FE551E /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherManager.swift; sourceTree = "<group>"; };
+		4C1832B12C20703400FE551E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWWeatherCondition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,11 +59,15 @@
 		4C18329A2C2049B300FE551E /* CarWashDay */ = {
 			isa = PBXGroup;
 			children = (
+				4C1832B12C20703400FE551E /* Info.plist */,
+				4C1832AF2C206F1500FE551E /* Views */,
+				4C1832AA2C206E9700FE551E /* Managers */,
 				4C1832A92C204A6A00FE551E /* CarWashDay.entitlements */,
 				4C18329B2C2049B300FE551E /* CarWashDayApp.swift */,
-				4C18329D2C2049B300FE551E /* ContentView.swift */,
+				4C18329D2C2049B300FE551E /* TestView.swift */,
 				4C18329F2C2049B400FE551E /* Assets.xcassets */,
 				4C1832A12C2049B400FE551E /* Preview Content */,
+				4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */,
 			);
 			path = CarWashDay;
 			sourceTree = "<group>";
@@ -67,6 +78,22 @@
 				4C1832A22C2049B400FE551E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4C1832AA2C206E9700FE551E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				4C1832AB2C206EAD00FE551E /* LocationManager.swift */,
+				4C1832AD2C206ED500FE551E /* WeatherManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		4C1832AF2C206F1500FE551E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +166,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C18329E2C2049B300FE551E /* ContentView.swift in Sources */,
+				4C18329E2C2049B300FE551E /* TestView.swift in Sources */,
 				4C18329C2C2049B300FE551E /* CarWashDayApp.swift in Sources */,
+				4C1832AE2C206ED500FE551E /* WeatherManager.swift in Sources */,
+				4C1832AC2C206EAD00FE551E /* LocationManager.swift in Sources */,
+				4C1832D92C213A3D00FE551E /* CWWeatherCondition.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +308,8 @@
 				DEVELOPMENT_TEAM = 9R7T8F4A6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarWashDay/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해 주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +340,8 @@
 				DEVELOPMENT_TEAM = 9R7T8F4A6S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CarWashDay/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "위치 권한을 허용해 주세요";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
