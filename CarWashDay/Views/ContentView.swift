@@ -41,17 +41,8 @@ struct ContentView: View {
             }
             .padding(.bottom, 40)
             
-            Text("오늘 세차하기 좋아요")
-                .font(.custom("Pretendard-Bold", size:24))
-                .foregroundColor(.cwGray5)
-                .padding(.bottom, 8)
-            
-            Text("10일간 비 올 확률이 낮아요")
-                .font(.custom("Pretendard-Reguler", size:16))
-                .foregroundColor(.cwGray4)
-                .padding(.bottom, 42)
-            
-            Image("SunCar")
+            // 주입 필요
+            RecommendView(currentStatus: .rainLikely)
             
             ScrollView(.vertical, showsIndicators: false){
                 if let location = locationManager.location {
