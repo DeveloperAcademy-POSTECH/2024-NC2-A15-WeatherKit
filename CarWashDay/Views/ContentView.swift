@@ -102,16 +102,19 @@ struct ContentView: View {
                                                 Spacer()
                                             }
                                             
-                                            HStack {
-                                                Image(systemName: "sun.max.fill")
-                                                    .foregroundColor(.cwYellowSun)
-                                                    .font(.system(size: 20))
+                                            ZStack(alignment: .leading) {
+                                                HStack {
+                                                    getConditionIcon(condition: CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue))
+                                                    
+                                                    Spacer()
+                                                }
+                                                
                                                 Text(CWWeatherCondition.convertCondition(condition: dayWeather.condition.rawValue).rawValue)
                                                     .font(.custom("Pretendard-Regular", size:16))
                                                     .foregroundColor(.cwGray3)
-                                                    .padding(.leading, 16)
-                                                Spacer()
+                                                    .padding(.leading, 49)
                                             }
+                                            
                                             
                                             HStack {
                                                 Spacer()
@@ -119,13 +122,11 @@ struct ContentView: View {
                                                     .font(.custom("Pretendard-Medium", size:20))
                                                     .foregroundColor(.cwGray3)
                                             }
-                                            
                                         }
                                     }
                                     .padding(.bottom, 32)
                                 }
                             }
-                            
                         }
                         .padding(.horizontal, 24)
                         .background(Color(.cwBlueList))
@@ -164,6 +165,28 @@ struct ContentView: View {
         .onAppear {
             dateFormatter.locale = Locale(identifier: "ko_KR")
             dateFormatter.dateFormat = "E"
+        }
+    }
+    
+    @ViewBuilder
+    private func getConditionIcon(condition: CWWeatherCondition) -> some View {
+        switch condition {
+        case .clear:
+            Image(systemName: "sun.max.fill")
+                .foregroundColor(.cwYellowSun)
+                .font(.system(size: 20))
+        case .cloudy:
+            Image(systemName: "cloud.fill")
+                .foregroundColor(.cwGrayCloudy)
+                .font(.system(size: 20))
+        case .snow:
+            Image(systemName: "snowflake")
+                .foregroundColor(.cwBlueSnow)
+                .font(.system(size: 20))
+        case .rain:
+            Image(systemName: "cloud.heavyrain.fill")
+                .foregroundColor(.cwBlueRain)
+                .font(.system(size: 20))
         }
     }
 }
