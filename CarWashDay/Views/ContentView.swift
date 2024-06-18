@@ -42,7 +42,6 @@ struct ContentView: View {
             }
             .padding(.bottom, 40)
             
-            // 주입 필요
             RecommendView(currentStatus: recommendationStatus)
             
             ScrollView(.vertical, showsIndicators: false){
@@ -55,6 +54,7 @@ struct ContentView: View {
                             .onAppear {
                                 Task {
                                     await weatherManager.fetchWeather(for: location)
+                                    setRecommendationStatus()
                                 }
                             }
                     } else {
@@ -157,11 +157,6 @@ struct ContentView: View {
         .onAppear {
             dateFormatter.locale = Locale(identifier: "ko_KR")
             dateFormatter.dateFormat = "E"
-            print(weatherManager.rainyDays)
-            print(weatherManager.precipitationUpperDays)
-            setRecommendationStatus()
-            
-            print(recommendationStatus)
         }
     }
     
@@ -173,6 +168,10 @@ struct ContentView: View {
         } else {
             recommendationStatus = .goodForCarWash
         }
+        
+        print(weatherManager.rainyDays)
+        print(weatherManager.precipitationUpperDays)
+        print(recommendationStatus)
     }
     
     @ViewBuilder

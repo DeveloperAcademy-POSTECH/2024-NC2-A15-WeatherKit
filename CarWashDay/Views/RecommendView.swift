@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecommendView: View {
-    @State var currentStatus: CWRecommendationStatus
+    var currentStatus: CWRecommendationStatus
     
     var body: some View {
         Text(currentStatus.recommend)
