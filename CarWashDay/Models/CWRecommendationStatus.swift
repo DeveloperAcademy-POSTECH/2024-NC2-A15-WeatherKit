@@ -7,7 +7,7 @@
 
 enum CWRecommendationStatus: String {
     case goodForCarWash = "10일간 비 올 확률이 낮아요"
-    case rainLikely = "흐리지만 비 올 확률이 높은 날이 있어요"
+    case rainLikely = "10일간 전반적으로 흐리고 비 올 확률이 있어요"
     case rainy = "10일간 비 올 확률이 높아요"
     
     var recommend: String {

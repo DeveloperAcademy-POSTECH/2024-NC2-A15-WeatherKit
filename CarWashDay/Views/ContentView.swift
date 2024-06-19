@@ -111,7 +111,8 @@ struct ContentView: View {
                         }
                     }
                     .padding(.horizontal, 24)
-                    .background(Color(.cwBlueList))
+                    .background(getListColor(status: recommendationStatus))
+                    .animation(.easeInOut(duration: 1.0), value: getBackgroundColor(status: recommendationStatus))
                     .cornerRadius(16)
                     .onAppear {
                         Task {
@@ -125,7 +126,8 @@ struct ContentView: View {
                
                 VStack {
                     Rectangle()
-                        .foregroundColor(.cwBlueBg)
+                        .foregroundColor(getBackgroundColor(status: recommendationStatus))
+                        .animation(.easeInOut(duration: 1.0), value: getBackgroundColor(status: recommendationStatus))
                         .frame(height: 28)
                     HStack(spacing: 3) {
                         Image(systemName: "apple.logo")
@@ -149,7 +151,8 @@ struct ContentView: View {
             .edgesIgnoringSafeArea(.all)
         }
         .padding(.horizontal, 20)
-        .background(Color(.cwBlueBg))
+        .background(getBackgroundColor(status: recommendationStatus))
+        .animation(.easeInOut(duration: 1.0), value: getBackgroundColor(status: recommendationStatus))
         .onAppear {
             dateFormatter.locale = Locale(identifier: "ko_KR")
             dateFormatter.dateFormat = "E"
@@ -163,6 +166,24 @@ struct ContentView: View {
             recommendationStatus = .rainLikely
         } else {
             recommendationStatus = .goodForCarWash
+        }
+    }
+    
+    private func getBackgroundColor(status: CWRecommendationStatus) -> Color {
+        switch status {
+        case .goodForCarWash:
+            return Color(.cwBlueBg)
+        case .rainLikely, .rainy:
+            return Color(.cwGrayBg)
+        }
+    }
+    
+    private func getListColor(status: CWRecommendationStatus) -> Color {
+        switch status {
+        case .goodForCarWash:
+            return Color(.cwBlueList)
+        case .rainLikely, .rainy:
+            return Color(.cwGrayList)
         }
     }
     
