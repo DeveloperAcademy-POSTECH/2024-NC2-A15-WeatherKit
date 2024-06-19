@@ -78,7 +78,7 @@ struct ContentView: View {
                                     ]
                                     LazyVGrid(columns: columns) {
                                         HStack {
-                                            Text(dateFormatter.string(from: dayWeather.date))
+                                            Text(isSameDate(first: Date(), second: dayWeather.date) ? "오늘" : dateFormatter.string(from: dayWeather.date))
                                                 .font(.custom("Pretendard-Medium", size:20))
                                                 .foregroundColor(.cwGray4)
                                             Spacer()
@@ -185,6 +185,11 @@ struct ContentView: View {
         case .rainLikely, .rainy:
             return Color(.cwGrayList)
         }
+    }
+    
+    private func isSameDate(first: Date, second: Date) -> Bool {
+        let calendar = Calendar.current
+        return calendar.isDate(first, inSameDayAs: second)
     }
     
     @ViewBuilder
