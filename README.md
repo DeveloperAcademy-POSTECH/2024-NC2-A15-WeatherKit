@@ -1,10 +1,9 @@
-# 2024-NC2-M0-AugmentedReality
+# 2024-NC2-A15-WeatherKit
 ## 🎥 Youtube Link
 (추후 만들어진 유튜브 링크 추가)
 
-## 💡 About Augmented Reality
+## 💡 About WeatherKit!
 
-## WeatherKit 이란?
 
 `WeatherKit` 
 
@@ -32,11 +31,6 @@ iOS 16.0+  |  iPadOS 16.0+  |  Mac Catalyst 16.0+  |  macOS 13.0+  |  tvOS 16.0+
 
 - 날씨 정보를 제공하여 사용자가 확인하고 미리 대비할 수 있게 도와주는 것
 
-<aside>
-💡 Weather Data → Useful Data for User
-
-</aside>
-
 ### 10일간 일일 예보 데이터(Daily forecast)를 활용해 사용자에게 유용한 정보로 변환하자!
 
 - WeatherKit과 CoreLocation을 활용하여 사용자의 현재 지역 날씨를 받아오고, 그 정보를 가공하여 사용자에게 유용한 정보로 보여주자!
@@ -47,16 +41,15 @@ iOS 16.0+  |  iPadOS 16.0+  |  Mac Catalyst 16.0+  |  macOS 13.0+  |  tvOS 16.0+
 
 - 여러 차주분의 경험을 듣고 발견한 인사이트
     - 세차와 날씨와 밀접한 관계가 있다
-
-<aside>
+ 
+<br>
+ 
+``` 
 😩 “세차하고 얼마 지나지 않아 비가 오면 너무 슬퍼요…”
-  
-</aside>
 
-<aside>
 😭 “세차하고 그 다음날에 비가 왔어요……”
-  
-</aside>
+```
+
 
 ## 🖼️ Prototype
 
@@ -111,6 +104,8 @@ class WeatherManager: ObservableObject {
 ```
 
 - 날씨 정보를 불러오는 WeatherManager 클래스
+
+<br>
 
 ---
 
