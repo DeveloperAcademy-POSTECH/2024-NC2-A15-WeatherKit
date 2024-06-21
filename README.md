@@ -2,9 +2,7 @@
 ## 🎥 Youtube Link
 (추후 만들어진 유튜브 링크 추가)
 
-## 💡 About Augmented Reality
-
-## WeatherKit 이란?
+## 💡 About WeatherKit!
 
 `WeatherKit` 
 
