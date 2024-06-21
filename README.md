@@ -62,8 +62,98 @@ iOS 16.0+  |  iPadOS 16.0+  |  Mac Catalyst 16.0+  |  macOS 13.0+  |  tvOS 16.0+
 
 ![세차데이 목업1](https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A15-WeatherKit/assets/54520200/2d9f2351-c35a-4050-9594-bd4ee19bdbe5)
 
-<img src="https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A15-WeatherKit/assets/54520200/cb4dec3f-33db-4fcc-ae6d-5e40ad0aecfc"  width="200"/>
+<img src="https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A15-WeatherKit/assets/54520200/cb4dec3f-33db-4fcc-ae6d-5e40ad0aecfc"  width="400" />
+
+<img src="https://github.com/DeveloperAcademy-POSTECH/2024-NC2-A15-WeatherKit/assets/54520200/8ec6ea7e-321c-44ec-b67a-e5dbf30c420c"  width="360" />
 
 
 ## 🛠️ About Code
-(핵심 코드에 대한 설명 추가)
+
+```swift
+import CoreLocation
+import SwiftUI
+import WeatherKit
+
+// 클래스의 모든 메서드와 속성이 메인 스레드에서 실행됨.
+@MainActor
+class WeatherManager: ObservableObject {
+    // WeatherKit의 공유 인스턴스를 가져옴
+    private let weatherService = WeatherService.shared
+    
+    @Published var dailyWeather: [DayWeather] = []
+    @Published var precipitationProbability: Double?
+    @Published var rainyDays: Int = 0
+    @Published var precipitationUpperDays: Int = 0
+    
+    func fetchWeather(for location: CLLocation) async {
+        do {
+            let weather = try await weatherService.weather(for: location)
+            dailyWeather = weather.dailyForecast.forecast.prefix(10).map { $0 }
+            
+            // 비오는 날이나 확률높은 날 계산
+            for day in dailyWeather {
+                let condition = CWWeatherCondition.convertCondition(condition: day.condition.rawValue)
+                
+                if condition == .rain {
+                    rainyDays += 1
+                }
+                
+                if day.precipitationChance >= 0.6 {
+                    precipitationUpperDays += 1
+                }
+             }
+        } catch {
+            print("Failed to fetch weather data: \(error)")
+        }
+    }
+}
+
+```
+
+- 날씨 정보를 불러오는 WeatherManager 클래스
+
+---
+
+<br>
+
+### 코드 세부 설명
+
+```swift
+// WeatherKit의 공유 인스턴스를 가져옴
+private let weatherService = WeatherService.shared
+```
+
+- WeatherService 클래스를 싱글톤 패턴으로 사용하기 위하여 WeatherService.shared를 가져옴
+
+<br>
+
+```swift
+let weather = try await weatherService.weather(for: location)
+```
+
+- WeatherSevice 클래스의 weather 메소드는 CLLocation 타입의 위치 정보를 통해서 해당 지역의 날씨 정보를 받아 올 수 있습니다.
+- WeatherService 클래스의 weather 메서드는 Weather 타입 객체 반환함
+
+<br>
+
+```swift
+var dailyWeather: [DayWeather] = []
+...
+dailyWeather = weather.dailyForecast.forecast.prefix(10).map { $0 }
+```
+
+- Weather 클래스의 프로퍼티는 다음과 같습니다. 이 중 dailyForecast 프로퍼티를 사용했습니다.
+- dailyForecast는 Forecast<DayWeather> 타입이고, Forecast의 설명은 다음과 같습니다.
+
+<br>
+
+```swift
+struct Forecast<Element> 
+	where Element : Decodable, Element : Encodable, Element : Equatable
+```
+
+- Forecast 구조체 내부의 forecast 프로퍼티는 [Element]를 반환합니다.
+- 따라서 해당 코드로 DayWeather 객체 10개를 배열로 얻을 수 있게 됩니다.
+- DayWeather 구조체 내부에는 최고기온, 강수확률 등의 다양한 정보가 프로퍼티로 존재합니다.
+
+<br>
