@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum CWWeatherCondition: String, CaseIterable {
+enum CWWeatherCondition: String, CaseIterable, Codable {
     case clear = "맑음"
     case cloudy = "흐림"
     case snow = "눈"
