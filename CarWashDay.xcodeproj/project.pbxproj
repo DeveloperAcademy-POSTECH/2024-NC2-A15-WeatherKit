@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C16C6822C318CD40020D9D4 /* CWDailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16C6812C318CD40020D9D4 /* CWDailyWeather.swift */; };
+		4C16C6842C3192070020D9D4 /* CWWeekWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C16C6832C3192070020D9D4 /* CWWeekWeather.swift */; };
 		4C18329C2C2049B300FE551E /* CarWashDayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C18329B2C2049B300FE551E /* CarWashDayApp.swift */; };
 		4C1832A02C2049B400FE551E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C18329F2C2049B400FE551E /* Assets.xcassets */; };
 		4C1832A32C2049B400FE551E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C1832A22C2049B400FE551E /* Preview Assets.xcassets */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C16C6812C318CD40020D9D4 /* CWDailyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWDailyWeather.swift; sourceTree = "<group>"; };
+		4C16C6832C3192070020D9D4 /* CWWeekWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CWWeekWeather.swift; sourceTree = "<group>"; };
 		4C1832982C2049B300FE551E /* CarWashDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarWashDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C18329B2C2049B300FE551E /* CarWashDayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarWashDayApp.swift; sourceTree = "<group>"; };
 		4C18329F2C2049B400FE551E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 			children = (
 				4C1832D82C213A3D00FE551E /* CWWeatherCondition.swift */,
 				4C806AC92C21A1CC008D8D0C /* CWRecommendationStatus.swift */,
+				4C16C6812C318CD40020D9D4 /* CWDailyWeather.swift */,
+				4C16C6832C3192070020D9D4 /* CWWeekWeather.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -204,9 +210,11 @@
 				4C806ACA2C21A1CC008D8D0C /* CWRecommendationStatus.swift in Sources */,
 				4C9C66252C216A170018FFA7 /* ContentView.swift in Sources */,
 				4C1832AE2C206ED500FE551E /* WeatherManager.swift in Sources */,
+				4C16C6822C318CD40020D9D4 /* CWDailyWeather.swift in Sources */,
 				4C1832AC2C206EAD00FE551E /* LocationManager.swift in Sources */,
 				4C1832D92C213A3D00FE551E /* CWWeatherCondition.swift in Sources */,
 				4C806AC82C219A70008D8D0C /* RecommendView.swift in Sources */,
+				4C16C6842C3192070020D9D4 /* CWWeekWeather.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
